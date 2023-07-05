@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostsController;
+use App\Models\Posts;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [PostsController::class, 'index']);
+Route::get('posts/', [PostsController::class, 'getAll']);
+Route::get('post/{post:slug}', [PostsController::class, 'show']);
+
+Route::get('profile/', function(){
+    return view('profile', [
+        'title'=> 'Profile Kesehatan'
+    ]);
 });
