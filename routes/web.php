@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
-use App\Models\Posts;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,11 @@ Route::get('profile/', function(){
         'title'=> 'Profile Kesehatan'
     ]);
 });
+
+Route::get('admin/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('admin/', [LoginController::class, 'authenticate']);
+Route::post('logout/', [LoginController::class, 'logout']);
+
+Route::get('dashboard/', function(){
+    return view('dashboard.index');
+})->middleware('auth');

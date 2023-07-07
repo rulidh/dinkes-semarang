@@ -2,41 +2,7 @@
 
 @section('container')
 {{-- Carousel Image Berita --}}
-<div id="carousel" class="carousel slide mb-lg-5" data-bs-touch="true">
-  <div class="carousel-inner">
-    @foreach ($posts as $post)
-    <div class="carousel-item active">
-      @if ($post->image)
-      <img src="https://source.unsplash.com/1440x720?{{ $post->category->slug }}" alt="">
-      @else
-      <img src="/images/rumah-pelita.jpeg" class="d-block w-100" alt="...">
-      @endif
-    </div>
-    @endforeach
-    <div class="card-img-overlay container-fluid d-flex flex-column justify-content-center" style="width: 25rem;">
-      <img src="/images/logo-dinkes.png" height="100" width="75" alt="">
-      <h5 class="card-title text-light" style="font-size: 1.5vw"><strong>MAKLUMAT PELAYANAN</strong></h5>
-      <p class="card-text text-light" style="font-size: 1.2vw">Bekerja dengan Sepenuh Hati dan Ikhlas untuk Memberikan Pelayanan Terbaik untuk masyarakat.</p>
-      <form action="/posts">
-        @if (request('category'))
-          <input type="hidden" name="category" value="{{ request('category') }}">
-        @endif
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Apa yang anda cari?" name="search" value="{{ request('search') }}">
-          <button class="btn btn-outline-light" id="basic-addon2">Search</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+@include('components.search-carousel')
 {{-- End Carousel Image Berita --}}
 
 {{-- Berita Dinkes --}}
@@ -160,65 +126,6 @@
 {{-- End Aplikasi Umum --}}
 
 {{-- Puskesmas dan UPTD --}}
-<div class="container text-center mt-lg-5">
-  <h3 class="font-weight-light">Puskesmas dan UPTD</h3>
-  <p class="font-weight-light">Kami mengutamakan pelayanan masyarakat di Puskesmas dan UPTD Semarang.</p>
-  <div class="row mx-auto my-auto">
-      <div id="recipeCarousel" class="carousel recipe-carousel slide w-100" data-ride="carousel">
-          <div class="carousel-inner carousel-inners w-100" role="listbox">
-              <div class="carousel-item carousel-items active">
-                  <div class="col-md-4">
-                      <div class="card card-body">
-                          <img class="img-fluid" src="/images/rumah-pelita.jpeg">
-                      </div>
-                  </div>
-              </div>
-              <div class="carousel-item carousel-items">
-                  <div class="col-md-4">
-                      <div class="card card-body">
-                          <img class="img-fluid" src="/images/rumah-pelita.jpeg">
-                      </div>
-                  </div>
-              </div>
-              <div class="carousel-item carousel-items">
-                  <div class="col-md-4">
-                      <div class="card card-body">
-                          <img class="img-fluid" src="/images/rumah-pelita.jpeg">
-                      </div>
-                  </div>
-              </div>
-              <div class="carousel-item carousel-items">
-                  <div class="col-md-4">
-                      <div class="card card-body">
-                          <img class="img-fluid" src="/images/rumah-pelita.jpeg">
-                      </div>
-                  </div>
-              </div>
-              <div class="carousel-item carousel-items">
-                  <div class="col-md-4">
-                      <div class="card card-body">
-                          <img class="img-fluid" src="/images/rumah-pelita.jpeg">
-                      </div>
-                  </div>
-              </div>
-              <div class="carousel-item carousel-items">
-                  <div class="col-md-4">
-                      <div class="card card-body">
-                          <img class="img-fluid" src="/images/rumah-pelita.jpeg">
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-              <span class="bg-dark border bi bi-caret-left border-dark rounded" aria-hidden="true"></span>
-              <span class="sr-only"></span>
-          </a>
-          <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-              <span class="bg-dark border bi bi-caret-right border-dark rounded" aria-hidden="true"></span>
-              <span class="sr-only"></span>
-          </a>
-      </div>
-  </div>
-</div>
+@include('components.puskesmas-carousel')
 {{-- End Puskesmas dan UPTD --}}
 @endsection
