@@ -3,18 +3,18 @@
       @if ($posts->count())
       <div class="carousel-item active">
         @if ($posts[0]->image)
-        <img src="https://source.unsplash.com/1440x720?{{ $posts[0]->category->slug }}" alt="">
+        <img src="{{ asset('storage/' . $posts[0]->image) }}" class="d-block w-100" alt="...">
         @else
-        <img src="/images/rumah-pelita.jpeg" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/1440x720?{{ $posts[0]->category->slug }}" alt="">
         @endif
       </div>
       @endif
       @foreach ($posts->skip(1) as $post)
       <div class="carousel-item">
         @if ($post->image)
-        <img src="https://source.unsplash.com/1440x720?{{ $post->category->slug }}" alt="">
+        <img src="{{ asset('storage/' . $post->image) }}" class="d-block w-100 img-fluid" alt="...">
         @else
-        <img src="/images/rumah-pelita.jpeg" class="d-block w-100" alt="...">
+        <img src="https://source.unsplash.com/1440x720?{{ $post->category->slug }}" alt="">
         @endif
       </div>
       @endforeach

@@ -21,7 +21,8 @@ class PostsFactory extends Factory
             'slug'=>fake()->slug(),
             'excerpt'=>fake()->paragraph(),
             'body'=>collect(fake()->paragraphs(mt_rand(3, 10)))->map(fn($p)=>"<p>$p</p>")->implode(''),
-            'category_id'=> mt_rand(1, 4)
+            'category_id'=> mt_rand(1, 4),
+            'user_id'=> 1
         ];
     }
 }

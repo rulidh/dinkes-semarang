@@ -50,6 +50,6 @@ class DatabaseSeeder extends Seeder
             'slug'=> 'nakes-teladan'
         ]);
 
-        Posts::factory(20)->create();
+        // Posts::factory(20)->create();
     }
 }

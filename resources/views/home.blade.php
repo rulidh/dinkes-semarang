@@ -8,16 +8,20 @@
 {{-- Berita Dinkes --}}
 <div class="container container-fluid">
   <div class="row">
-    <div class="col-sm-8" id="firstCol">
+    <div class="col-sm-9" id="firstCol">
       <div class="row mt-1">
         <small><a href="/posts" class="text-decoration-none">Semua Berita</a></small>
         <h5>Dinas Kesehatan</h5>
         @foreach ($posts as $post)
-        <div class="col-md-4 mb-3">
-          <div class="card" style="width: 14rem;">
-            <img src="/images/rumah-pelita.jpeg" class="card-img-top" alt="...">
+        <div class="col-sm-4 mb-3">
+          <div class="card" style="width: 16rem;">
+            @if ($post->image)
+              <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top img-fluid" alt="...">
+            @else
+              <img src="https://source.unsplash.com/500x400?{{ $post->category->slug }}" alt="">  
+            @endif
             <div class="card-body">
-              <small class="mb-1"><i class="bi bi-clock"></i> {{ $post->created_at->diffForHumans() }}</small>
+              <small class="mb-1"><i class="bi bi-clock"></i> {{ $post->created_at->diffForHumans() }} <i class="bi bi-person"></i> {{ $post->author->name }} </small>
               <h5 class="card-title">{{ $post->title }}</h5>
               <small><a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></small>
               <p class="card-text">{{ $post->excerpt }}</p>
@@ -28,11 +32,14 @@
         @endforeach
       </div>
     </div>
-    <div class="col-sm-4">
-      <h5 class="mt-4">Berita Pemkot</h5>
+    {{-- End Berita Dinkes --}}
+
+    {{-- Berita Pemkot --}}
+    <div class="col-sm-1">
+      <h5 >Berita Pemkot</h5>
       <div class="col-sm-4 mb-2">
         <div class="card" style="width: 18rem;">
-          <img src="/images/rumah-pelita.jpeg" class="card-img-top" alt="..." height="125">
+          <img src="/images/rumah-pelita.jpeg" class="card-img-top img-fluid" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -41,9 +48,9 @@
         </div>
       </div>
     </div>
+    {{-- End Berita Pemkot --}}
   </div>
 </div>
-{{-- End Berita Dinkes --}}
 
 {{-- Aplikasi Umum --}}
 <div id="carouselExampleCaptions" class="carousel slide mt-lg-5">

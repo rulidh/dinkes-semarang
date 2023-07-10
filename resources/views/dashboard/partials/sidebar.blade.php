@@ -1,7 +1,6 @@
-<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary fixed">
     <div class="offcanvas-lg offcanvas-end bg-body-dark" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="sidebarMenuLabel">Company name</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
@@ -13,9 +12,10 @@
                 <a class="nav-link btn btn-toggle d-flex align-items-center rounded border-0 collapsed gap-2 link-dark" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">Posts</a>
                 <div class="collapse show text" id="dashboard-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li><a href="/dashboard/posts" class="link-body-emphasis d-inline-flex text-decoration-none rounded">All Posts</a></li>
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add Posts</a></li>
-                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add Categories</a></li>
+                        <li><a href="/dashboard/posts" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><i class="bi bi-file-text"></i>All Posts</a></li>
+                        <li><a href="/dashboard/posts/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><i class="bi bi-file-earmark-plus"></i>Add Posts</a></li>
+                        <li><a href="/dashboard/categories" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><i class="bi bi-tags"></i>All Categories</a></li>
+                        <li><a href="/dashboard/categories/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded"><i class="bi bi-tag"></i>Add Categories</a></li>
                     </ul>
                 </div>
             </li>
@@ -29,23 +29,6 @@
               </div>
             </li>
           </ul>
-
-          {{-- <hr class="my-3 p-2">
-
-          <ul class="d-flex flex-column nav flex-column mb-auto fixed-end">
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
-                Settings
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                <svg class="bi"><use xlink:href="#door-closed"/></svg>
-                Sign out
-              </a>
-            </li>
-          </ul> --}}
         </div>
       </div>
 </div>
