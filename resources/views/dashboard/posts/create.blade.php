@@ -22,11 +22,13 @@
         <div class="mb-3">
           <label for="slug" class="form-label">Slug</label>
           <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug') }}" required>
-          @error('slug')
-           <div class="is-invalid">
-            {{ $message }}  
-          </div>   
-          @enderror
+          <small>  
+            @error('slug')
+            <div class="is-invalid">
+              {{ $message }}  
+            </div>   
+            @enderror
+          </small>
         </div>
         <div class="mb-3">
           <label for="category" class="form-label">Kategori</label>

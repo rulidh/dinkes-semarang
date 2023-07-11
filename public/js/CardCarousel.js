@@ -1,4 +1,4 @@
-$('.carousel-card .carousel-items').each(function () {
+$('.carousel-card .carousel-item').each(function () {
   var minPerSlide = 4;
   var next = $(this).next();
   if (!next.length) {

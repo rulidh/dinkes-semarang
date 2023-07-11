@@ -18,6 +18,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
                     <th scope="col">Action</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,11 @@
                                 <button class="badge bg-danger border-0 text-decoration-none" onclick="return confirm('Hapus?')"><i class="bi bi-x-circle d-flex align-items-center justify-content-center"></i></button>
                             </form>
                         </td>
+                        <td>@if ($post->isPublished())
+                            <button class="bg bg-success rounded text-light" disabled="disabled">Published</button>
+                        @else
+                            <button class="bg bg-warning rounded text-light" disabled="disabled">Drafted</button>
+                        @endif</td>
                     </tr>
                 @endforeach
             </tbody>

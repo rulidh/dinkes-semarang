@@ -9,6 +9,7 @@
 <div class="container container-fluid">
   <div class="row">
     <div class="col-sm-9" id="firstCol">
+      @if ($posts->count())
       <div class="row mt-1">
         <small><a href="/posts" class="text-decoration-none">Semua Berita</a></small>
         <h5>Dinas Kesehatan</h5>
@@ -18,7 +19,7 @@
             @if ($post->image)
               <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top img-fluid" alt="...">
             @else
-              <img src="https://source.unsplash.com/500x400?{{ $post->category->slug }}" alt="">  
+              <img src="/images/rumah-pelita.jpeg" alt="">  
             @endif
             <div class="card-body">
               <small class="mb-1"><i class="bi bi-clock"></i> {{ $post->created_at->diffForHumans() }} <i class="bi bi-person"></i> {{ $post->author->name }} </small>
@@ -31,6 +32,11 @@
         </div>
         @endforeach
       </div>
+      @else
+      <div class="d-flex align-content-center justify-content-center">
+        <h5>No Post Found</h5>
+      </div>
+      @endif
     </div>
     {{-- End Berita Dinkes --}}
 

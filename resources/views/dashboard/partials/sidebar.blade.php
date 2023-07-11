@@ -23,8 +23,8 @@
               <a class="nav-link btn btn-toggle d-flex align-items-center rounded collapesed gap-2 link-dark border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">Pages</a>
               <div class="collapse show text" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">All Pages</a></li>
-                  <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add Pages</a></li>
+                  <li><a href="/dashboard/pages" class="link-body-emphasis d-inline-flex text-decoration-none rounded">All Pages</a></li>
+                  <li><a href="/dashboard/pages/create" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Add Pages</a></li>
                 </ul>
               </div>
             </li>

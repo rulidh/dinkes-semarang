@@ -8,7 +8,7 @@
           @foreach ($posts as $post)
           <div class="col-md-4 mb-3">
             <div class="card" style="width: 20rem;">
-              <img src="/images/rumah-pelita.jpeg" class="card-img-top" alt="...">
+              <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="...">
               <div class="card-body">
                 <small class="mb-1"><i class="bi bi-clock"></i> {{ $post->created_at->diffForHumans() }}</small>
                 <h5 class="card-title">{{ $post->title }}</h5>

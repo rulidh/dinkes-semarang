@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/card-carousel.css">
+    <link rel="stylesheet" href="/css/ckeditor.css">
     <link rel="icon" type="image/x-icon" href="/images/logo-dinkes.png">
     <title>{{ $title }}</title>
 </head>

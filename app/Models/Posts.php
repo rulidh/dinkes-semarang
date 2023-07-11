@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use PawelMysior\Publishable\Publishable;
 use App\Models\Category;
 
 class Posts extends Model
 {
     use HasFactory;
     use Sluggable;
+    use Publishable;
 
     protected $guarded= ['id'];
     protected $with= ['category', 'author'];

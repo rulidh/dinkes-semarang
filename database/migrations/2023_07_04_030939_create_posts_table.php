@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('excerpt');
             $table->text('body');
             $table->timestamps();
+            $table->timestamp('published_at')->nullable();
         });
     }
 

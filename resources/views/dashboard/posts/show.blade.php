@@ -30,6 +30,25 @@
                 {!! $post->body !!}
             </article>
     </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <h5 class="card-header">Status</h5>
+            <div class="card-body">
+              <h5 class="card-title">Created at: {{ $post->created_at }}</h5>
+              <p class="card-text">{{ $post->isPublished() ? "Published at: $post->published_at" : "Drafted"}}</p>
+              <small class="d-flex flex-row">
+                  <form action="/dashboard/posts/{{ $post->slug }}/publish" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <button type="submit" class="mx-1 btn btn-outline-success {{ $post->isPublished() ? 'active' : '' }}">Publish</button>
+                </form>
+                <form action="/dashboard/posts/{{ $post->slug }}/unpublish" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <button type="submit" class="mx-1 btn btn-outline-warning {{ $post->isUnpublished() ? 'active' : '' }}">Draft</button>
+                </form>
+              </small>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
 @endsection

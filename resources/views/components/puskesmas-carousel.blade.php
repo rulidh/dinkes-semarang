@@ -28,6 +28,13 @@
                 </div>
             </div>
         </div>
+        <div class="carousel-item carousel-items">
+            <div class="col-md-3">
+                <div class="card card-body">
+                    <img class="img-fluid" src="https://via.placeholder.com/640x360?text=5">
+                </div>
+            </div>
+        </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

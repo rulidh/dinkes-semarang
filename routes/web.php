@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardPageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +40,10 @@ Route::get('dashboard/', function(){
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+Route::post('/dashboard/posts/{post:slug}/publish', [DashboardPostController::class, 'publish'])->middleware('auth');
+Route::post('/dashboard/posts/{post:slug}/unpublish', [DashboardPostController::class, 'unpublish'])->middleware('auth');
 
 Route::get('/dashboard/categories/checkSlug', [DashboardCategoryController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategoryController::class)->except('show')->middleware('auth');
+
+Route::resource('/dashboard/pages', DashboardPageController::class)->middleware('auth');

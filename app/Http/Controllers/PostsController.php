@@ -11,7 +11,7 @@ class PostsController extends Controller
     {
         return view('home', [
             'title'=> 'Dinas Kesehatan Kota Semarang',
-            'posts'=> Posts::latest()->paginate(6)
+            'posts'=> Posts::latest()->published()->paginate(6)
         ]);
     }
 
@@ -23,7 +23,7 @@ class PostsController extends Controller
 
         return view('posts', [
             'title'=> 'Berita Terkini',
-            'posts'=> Posts::latest()->filter(request(['search', 'category']))->paginate(9)->withQueryString()
+            'posts'=> Posts::published()->latest()->filter(request(['search', 'category']))->paginate(9)->withQueryString()
         ]);
     }
 

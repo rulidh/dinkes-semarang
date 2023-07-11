@@ -53,7 +53,9 @@ class DashboardPostController extends Controller
             'body'=> 'required'
         ]);
 
+        
         if($request->file('image')){
+            // $validatedData['image']= ImageOptimizer::optimize($validatedData['image']);
             $validatedData['image']= $request->file('image')->store('post-images');
         }
 
@@ -109,7 +111,7 @@ class DashboardPostController extends Controller
             'body'=> 'required'
         ];
 
-        $rules['image']= 'image|file|max:1024';
+        $rules['image']= 'image|file|max:2048';
 
         
         if($request->slug != $post->slug){
@@ -153,5 +155,18 @@ class DashboardPostController extends Controller
         $slug= SlugService::createSlug(Posts::class, 'slug', $request->title);
 
         return response()->json(['slug'=> $slug]);
+    }
+
+    public function publish(Posts $post)
+    {
+        $post->publish();
+
+        return redirect('/dashboard/posts')->with('success', 'Post berhasil di publish');        
+    }
+    public function unpublish(Posts $post)
+    {        
+        $post->unpublish();
+
+        return redirect('/dashboard/posts')->with('success', 'Post berhasil di draft');
     }
 }

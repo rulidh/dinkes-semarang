@@ -28,7 +28,7 @@ class DashboardCategoryController extends Controller
      */
     public function create()
     {
-        return view('dashboard.categories.index', [
+        return view('dashboard.categories.create', [
             'title'=> 'Tambah Kategori',
         ]);
     }
@@ -95,7 +95,7 @@ class DashboardCategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::delete($category->id);
+        Category::destroy($category->id);
 
         return redirect('/dashboard/categories')->with('success', 'Kategori berhasil dihapus');
     }

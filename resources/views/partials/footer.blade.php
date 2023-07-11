@@ -12,18 +12,15 @@
             <li class="nav-item mb-2 text-light">WA Helpdesk 628 953 76860 088 (WA Only)</a></li>
           </ul>
         </div>
-
-        <div class="col-md-5 offset-md-1 mb-3">
-        </div>
       </div>
 
-      <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-4 border-top">
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top">
         <p class="text-light">&copy; 2018 Dinas Kesehatan Kota Semarang</p>
         <ul class="list-unstyled d-flex">
-          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.instagram.com/dkksemarang/"><i class="bi bi-instagram"></i></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.twitter.com/dkksemarang"><i class="bi bi-twitter"></i></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.facebook.com/dinkeskotasemarang/"><i class="bi bi-facebook"></i></a></li>
-          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.youtube.com/@dinaskesehatankotasemarang"><i class="bi bi-youtube"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.instagram.com/dkksemarang/"><i class="bi bi-instagram" style="color: #C13584;"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.twitter.com/dkksemarang"><i class="bi bi-twitter" style="color: #1DA1F2;"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.facebook.com/dinkeskotasemarang/"><i class="bi bi-facebook" style="color: #4267B2;"></i></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" target="_blank" href="https://www.youtube.com/@dinaskesehatankotasemarang"><i class="bi bi-youtube" style="color: #FF0000;"></i></a></li>
         </ul>
       </div>
     </footer>

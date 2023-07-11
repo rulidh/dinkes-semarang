@@ -5,16 +5,16 @@
         @if ($posts[0]->image)
         <img src="{{ asset('storage/' . $posts[0]->image) }}" class="d-block w-100" alt="...">
         @else
-        <img src="https://source.unsplash.com/1440x720?{{ $posts[0]->category->slug }}" alt="">
+        <img src="/images/rumah-pelita.jpeg" alt="">
         @endif
       </div>
+      @else
+      <img src="/images/rumah-pelita.jpeg" alt="">
       @endif
       @foreach ($posts->skip(1) as $post)
       <div class="carousel-item">
         @if ($post->image)
         <img src="{{ asset('storage/' . $post->image) }}" class="d-block w-100 img-fluid" alt="...">
-        @else
-        <img src="https://source.unsplash.com/1440x720?{{ $post->category->slug }}" alt="">
         @endif
       </div>
       @endforeach
