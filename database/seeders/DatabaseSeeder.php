@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Posts;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Menu;
 
 class DatabaseSeeder extends Seeder
 {
@@ -51,5 +52,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Posts::factory(20)->create();
+
+        Menu::create([
+            'title'=> 'Home',
+            'parent_id'=> 0,
+            'sort_order'=> 0,
+            'slug'=> '/test'
+        ]);
     }
 }

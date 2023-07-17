@@ -30,6 +30,11 @@ class Posts extends Model
             ]
         ];
     }
+    
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 
     public function author()
     {

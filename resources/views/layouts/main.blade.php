@@ -8,18 +8,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/card-carousel.css">
-    <link rel="stylesheet" href="/css/ckeditor.css">
     <link rel="icon" type="image/x-icon" href="/images/logo-dinkes.png">
     <title>{{ $title }}</title>
+
+    {{-- Ajax Jquery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    {{-- CKEditor --}}
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 </head>
 <body>
-        @include('partials.navbar')
+    @include('partials.navbar')
     <div>
         @yield('container')
     </div>
     @include('partials.footer')   
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="/js/CardCarousel.js"></script>
 </html>

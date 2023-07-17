@@ -1,6 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
+<link rel="stylesheet" href="/css/style.css">
 <div class="container">
     <div class="row my-3">
         <div class="col-lg-8">
@@ -22,9 +23,16 @@
                     <img src="{{ asset('storage/' . $post->image) }}" alt="" class="img-fluid">
                 </div>   
                 @else
-                <div class="row my-2">
-                    <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid">
-                </div>
+                @if ($post->category_id > 0)
+                    <div class="row my-2">
+                        <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid">
+                    </div>
+                @endif
+                @if ($post->menu_id > 0)        
+                    <div class="row my-2">
+                        <img src="https://source.unsplash.com/1200x400?{{ $post->menu->title }}" alt="{{ $post->menu->title }}" class="img-fluid">
+                    </div>
+                @endif
                 @endif
 
                 {!! $post->body !!}
@@ -51,4 +59,5 @@
         </div>
     </div>
 </div>
+<script src="/js/postTable.js"></script>
 @endsection

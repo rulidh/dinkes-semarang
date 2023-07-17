@@ -3,7 +3,7 @@
       @if ($posts->count())
       <div class="carousel-item active">
         @if ($posts[0]->image)
-        <img src="{{ asset('storage/' . $posts[0]->image) }}" class="d-block w-100" alt="...">
+        <img src="{{ asset('storage/' . $posts[0]->image) }}" class="d-block w-100" style="height: 50vh;" alt="...">
         @else
         <img src="/images/rumah-pelita.jpeg" alt="">
         @endif

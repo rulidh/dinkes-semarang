@@ -17,6 +17,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Title</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Menu</th>
                     <th scope="col">Action</th>
                     <th scope="col">Status</th>
                 </tr>
@@ -26,7 +27,16 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $post->title }}</td>
+                        @if ($post->category_id > 0)
                         <td>{{ $post->category->name }}</td>
+                        @else
+                        <td class="text-danger">No Category Related</td>    
+                        @endif
+                        @if($post->menu_id > 0)
+                        <td>{{ $post->menu->title }}</td>
+                        @else
+                        <td class="text-danger">No Menu Related</td>
+                        @endif
                         <td>
                             <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info text-decoration-none"><i class="bi bi-eye d-flex align-items-center justify-content-center"></i></a>
                             <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning text-decoration-none"><i class="bi bi-pencil-square d-flex align-items-center justify-content-center"></i></a>

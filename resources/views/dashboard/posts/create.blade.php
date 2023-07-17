@@ -43,6 +43,19 @@
           </select>
         </div>
         <div class="mb-3">
+          <label for="menu" class="form-label">Menu</label>
+          <select name="menu_id" class="form-select" id="menu_id">
+            <option value="0">No Menu</option>
+            @foreach ($menus as $menu)
+            @if (old('menu_id') == $menu->id)
+              <option value="{{ $menu->id }}" selected>{{ $menu->title }}</option>
+            @else    
+              <option value="{{ $menu->id }}">{{ $menu->title }}</option>
+            @endif
+            @endforeach
+          </select>
+        </div>
+        <div class="mb-3">
           <label for="image" class="form-label">Tambah Foto (Optional)</label>
           <img class="img-preview img-fluid mb-3 col-sm-5">
           <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
@@ -52,9 +65,9 @@
               </div>
           @enderror
         </div>
-        <div class="mb-3">
+        <div class="mb-3" id="editor">
           <label for="body" class="form-label">Body</label>
-            <textarea name="body" id="body">{!! Request::old('body') !!}</textarea>
+            <p><textarea name="body" id="body">{!! Request::old('body') !!}</textarea></p>
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -70,16 +83,6 @@
       .then(data=> slug.value= data.slug)
     });
 
-    ClassicEditor
-        .create(document.querySelector('#body'))
-        .then(editor=> {
-            console.log(editor);
-            
-        })
-        .catch(error=> {
-            console.error(error);
-        });
-
     function previewImage(){
       const image= document.querySelector('#image');
       const imgPreview= document.querySelector('.img-preview');
@@ -94,5 +97,14 @@
       }
     }
 
+    // CKEditor
+    CKEDITOR
+        .replace('body', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        })
+        .catch( error => {
+            console.error( error );
+        } );
 </script>
 @endsection

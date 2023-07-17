@@ -47,6 +47,7 @@ class DashboardCategoryController extends Controller
         ]);
 
         Category::create($validatedData);
+        
         return redirect('/dashboard/categories')->with('success', 'Kategori baru berhasil ditambahkan');
     }
 

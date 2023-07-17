@@ -5,6 +5,7 @@
     <div class="row mt-1">
           <small><a href="/categories" class="text-decoration-none">Kategori Berita</a></small>
           <h5>Dinas Kesehatan</h5>
+          @if ($posts->count())
           @foreach ($posts as $post)
           <div class="col-md-4 mb-3">
             <div class="card" style="width: 20rem;">
@@ -19,6 +20,11 @@
             </div>
           </div>
           @endforeach
+          @else
+          <div class="mb-3">
+            <h4 class="text-center">No Posts Found</h4>
+          </div>
+          @endif
     </div>
   </div>
 @endsection

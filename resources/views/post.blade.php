@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
+<link rel="stylesheet" href="/css/style.css">
     <div class="container container-fluid">
         <div class="row">
             <div class="col-sm-8 mt-3">
@@ -9,7 +10,12 @@
                     @if ($post->image)
                     <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" alt="{{ $post->image }}">
                     @else
-                    <img src="https://source.unsplash.com/1200x400?{{ $post->category->slug }}" alt="{{ $post->category->slug }}" class="img-fluid rounded">
+                        @if ($post->category_id > 0)
+                        <img src="https://source.unsplash.com/1200x400?{{ $post->category->slug }}" alt="{{ $post->category->slug }}" class="img-fluid rounded">
+                        @endif
+                        @if($post->menu_id > 0)
+                        <img src="https://source.unsplash.com/1200x400?{{ $post->menu->slug }}" alt="{{ $post->menu->slug }}" class="img-fluid rounded">
+                        @endif
                     @endif
                     <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }}</small>
                     
@@ -20,7 +26,7 @@
                 <a href="/" class="text-decoration-none btn btn-outline-primary">Back</a>
             </div>
             <div class="col-sm-4 mt-lg-5">
-                <div class="card" style="width: 18rem; background-color: red;">
+                <div class="card my-3" style="width: 18rem; background-color: red;">
                     <div class="card-header" style="color: white;">
                       Kategori
                     </div>
@@ -33,4 +39,5 @@
             </div>
         </div>
     </div>
+<script src="/js/postTable.js"></script>
 @endsection

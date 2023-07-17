@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Posts;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Menu;
 use Illuminate\Support\Str;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
@@ -31,9 +32,11 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
+
         return view('dashboard.posts.create', [
             'title'=> 'Tambah Berita Baru',
-            'categories'=> Category::all()
+            'categories'=> Category::all(),
+            'menus'=> Menu::all()
         ]);
     }
 
@@ -48,14 +51,17 @@ class DashboardPostController extends Controller
         $validatedData= $request->validate([
             'title'=> 'required|max:255',
             'slug'=> 'required|unique:posts',
-            'category_id'=> 'required',
+            'category_id'=> 'nullable',
+            'menu_id'=> 'nullable',
             'image'=> 'image|file|max:2048',
             'body'=> 'required'
         ]);
 
+        if($request->menu_id > 0){
+            $validatedData['category_id']= 0;
+        }
         
         if($request->file('image')){
-            // $validatedData['image']= ImageOptimizer::optimize($validatedData['image']);
             $validatedData['image']= $request->file('image')->store('post-images');
         }
 
@@ -92,7 +98,8 @@ class DashboardPostController extends Controller
         return view('dashboard.posts.edit', [
             'title'=> 'Edit Berita',
             'post'=> $post,
-            'categories'=> Category::all()
+            'categories'=> Category::all(),
+            'menus'=> Menu::all()
         ]);
     }
 
@@ -107,7 +114,8 @@ class DashboardPostController extends Controller
     {
         $rules= [
             'title'=> 'required|max:255',
-            'category_id'=> 'required',
+            'category_id'=> 'nullable',
+            'menu_id'=> 'nullable',
             'body'=> 'required'
         ];
 
@@ -117,8 +125,13 @@ class DashboardPostController extends Controller
         if($request->slug != $post->slug){
             $rules['slug']= 'required|unique:posts';
         }
+
         
         $validatedData= $request->validate($rules);
+        
+        if($request->menu_id > 0){
+            $validatedData['category_id']= 0;
+        }
 
         if($request->file('image')){
             if($request->oldImage){

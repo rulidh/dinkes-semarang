@@ -42,6 +42,19 @@
           </select>
         </div>
         <div class="mb-3">
+          <label for="menu" class="form-label">Menu</label>
+          <select name="menu_id" class="form-select" id="menu_id">
+            <option value="0">No Menu</option>
+            @foreach ($menus as $menu)
+            @if (old('menu_id', $post->menu_id) == $menu->id)
+              <option value="{{ $menu->id }}" selected>{{ $menu->title }}</option>
+            @else    
+              <option value="{{ $menu->id }}">{{ $menu->title }}</option>
+            @endif
+            @endforeach
+          </select>
+        </div>
+        <div class="mb-3">
           <label for="image" class="form-label">Post image</label>
           <input type="hidden" name="oldImage" id="oldImage" value="{{ $post->image }}">
           @if ($post->image)
@@ -75,15 +88,15 @@
             .then(data=> slug.value= data.slug)
     });
 
-    ClassicEditor
-        .create(document.querySelector('#body'))
-        .then(editor=> {
-            console.log(editor);
-            
+    // CKEditor
+    CKEDITOR
+        .replace('body', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
         })
-        .catch(error=> {
-            console.error(error);
-        });
+        .catch( error => {
+            console.error( error );
+        } );
 
     function previewImage(){
       const image= document.querySelector('#image');

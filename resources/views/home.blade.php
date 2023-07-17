@@ -139,6 +139,6 @@
 {{-- End Aplikasi Umum --}}
 
 {{-- Puskesmas dan UPTD --}}
-@include('components.puskesmas-carousel')
+@include('components.aplikasi-internal')
 {{-- End Puskesmas dan UPTD --}}
 @endsection
