@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    protected $maxAttempts= 3;
+    protected $decayMinutes= 1;
+    
     public function index()
     {
         return view('dashboard.login.index');
@@ -15,6 +18,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request): RedirectResponse
     {
+
         $credentials= $request->validate([
             'username'=> 'required',
             'password'=> 'required'

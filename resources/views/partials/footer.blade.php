@@ -3,13 +3,13 @@
   <div class="container">
     <footer class="py-3">
       <div class="row">
-        <div class="col-4 col-md-5 mb-3">
+        <div class="col-4 col-md-5">
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-light"><b>dinkes.semarangkota.go.id</b></a></li>
-            <li class="nav-item mb-2 text-light"><a href="https://goo.gl/maps/jcxAobqJjTu1UdKZ9" class="text-decoration-none">Jl. Pandanaran No. 79</a></li>
-            <li class="nav-item mb-2 text-light">Fax.024-8318771</a></li>
-            <li class="nav-item mb-2 text-light">Telp. (024) 8415269 - 8318070</a></li>
-            <li class="nav-item mb-2 text-light">WA Helpdesk <a href="http://wa.me/62895376860088?text=Halo saya ingin bertanya mengenai" class="text-decoration-none">628 953 76860 088</a> (WA Only)</li>
+            <li class="nav-item mb-1"><a href="/" class="nav-link p-0 text-light"><b>dinkes.semarangkota.go.id</b></a></li>
+            <li class="nav-item mb-1 text-light"><a href="https://goo.gl/maps/jcxAobqJjTu1UdKZ9" class="text-decoration-none">Jl. Pandanaran No. 79</a></li>
+            <li class="nav-item mb-1 text-light">Fax.024-8318771</a></li>
+            <li class="nav-item mb-1 text-light">Telp. (024) 8415269 - 8318070</a></li>
+            <li class="nav-item mb-1 text-light">WA Helpdesk <a href="http://wa.me/62895376860088?text=Halo saya ingin bertanya mengenai" class="text-decoration-none">628 953 76860 088</a> (WA Only)</li>
           </ul>
         </div>
       </div>

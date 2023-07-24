@@ -1,7 +1,7 @@
-$("figure")
-.addClass("table-responsive")
-.removeClass("table");
-$("table").addClass("table");
+$("table")
+    .addClass("table")
+    .addClass('table-responsive')
+    .removeAttr('style');
 $("thead").children("tr").children("th:first-child").addClass("text-center");
 $("tbody").children().children("td:first-child").addClass("text-center");
 

@@ -47,13 +47,14 @@
                             </form>
                         </td>
                         <td>@if ($post->isPublished())
-                            <button class="bg bg-success rounded text-light" disabled="disabled">Published</button>
+                            <button name="publish" id="publish" class="bg bg-success rounded text-light" disabled="disabled">Published</button>
                         @else
-                            <button class="bg bg-warning rounded text-light" disabled="disabled">Drafted</button>
+                            <button name="draft" id="draft" class="bg bg-warning rounded text-light" disabled="disabled">Drafted</button>
                         @endif</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+        {{ $posts->links() }}
     </div>
 @endsection

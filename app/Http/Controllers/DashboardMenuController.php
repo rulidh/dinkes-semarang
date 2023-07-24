@@ -17,7 +17,7 @@ class DashboardMenuController extends Controller
     {
         return view('dashboard.menu.index', [
             'title'=> 'All Menus',
-            'menus'=> Menu::latest()->get()
+            'menus'=> Menu::orderBy('sort_order')->paginate(10)
         ]);
     }
 
@@ -62,7 +62,11 @@ class DashboardMenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('dashboard.menu.edit', [
+            'title'=> 'Edit Menu',
+            'menus'=> Menu::all(),
+            'menu'=> $menu,
+        ]);
     }
 
     /**
@@ -74,7 +78,19 @@ class DashboardMenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $rules= [
+            'title'=> 'required|max:255',
+            'sort_order'=> 'nullable'
+        ];
+
+        if($request->slug != $menu->slug){
+            $rules['slug']= 'required|unique:menus';
+        }
+
+        $validatedData= $request->validate($rules);
+        Menu::where('id', $menu->id)->update($validatedData);
+
+        return redirect('/dashboard/categories')->with('success', 'Menu berhasil diperbarui');
     }
 
     /**
@@ -95,5 +111,18 @@ class DashboardMenuController extends Controller
         $slug= SlugService::createSlug(Menu::class, 'slug', $request->title);
 
         return response()->json(['slug'=> $slug]);
+    }
+
+    public function publish(Menu $menu)
+    {
+        $menu->publish();
+
+        return redirect('/dashboard/menu')->with('success', 'Menu berhasil di publish');        
+    }
+    public function unpublish(Menu $menu)
+    {        
+        $menu->unpublish();
+
+        return redirect('/dashboard/menu')->with('success', 'Menu berhasil di draft');
     }
 }

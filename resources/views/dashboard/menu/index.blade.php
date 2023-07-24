@@ -18,6 +18,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Parent Menu</th>
                 <th scope="col">Slug</th>
+                <th scope="col">Urutan</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -26,8 +27,14 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $menu->title }}</td>
-                    <td>@if($menu->parent_id) {{ $menu->parent->title }} @else No Parent @endif</td>
+                    @if($menu->parent_id) 
+                    <td>{{ $menu->parent->title }}</td> 
+                    @else 
+                    <td class="text-danger">No Parent</td>
+                    @endif
+                    
                     <td>{{ $menu->slug }}</td>
+                    <td>{{ $menu->sort_order }}</td>
                     <td>
                         <a href="/dashboard/menu/{{ $menu->slug }}/edit" class="badge bg-warning text-decoration-none"><i class="bi bi-pencil-square d-flex align-items-center justify-content-center"></i></a>
                         <form action="/dashboard/menu/{{ $menu->slug }}" method="post" class="d-inline">
@@ -40,5 +47,6 @@
             @endforeach
         </tbody>
     </table>
+    {{ $menus->links() }}
 </div>
 @endsection

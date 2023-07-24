@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('parent_id')->default(0);
             $table->string('sort_order')->default(0);
             $table->string('slug')->unique()->default(null);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

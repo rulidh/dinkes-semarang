@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
 /* .table th, .table td {
     border: none;
 }
@@ -48,4 +50,26 @@ table {
   /* bottom-right border-radius */
   table tr:last-child td:last-child {
     border-bottom-right-radius: 1rem !important;
+  }
+
+  @media (max-width: 1000px) {
+    img[class= hidden-mobile] ,.hidden-mobile {
+      display: none;
+    }
+
+    .centered-text {
+      text-align: center;
+    }
+  }
+
+  g {
+    font-weight: bold;
+    font-size: 18;
+  }
+
+  @media(max-width: 700px) {
+    img.mobile-navbar {
+      height: 50px;
+      width: 35px;
+    }
   }

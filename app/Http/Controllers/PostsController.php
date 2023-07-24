@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Posts;
 use App\Models\Category;
 use App\Models\Menu;
+use Nette\Utils\Paginator;
 
 class PostsController extends Controller
 {
@@ -31,7 +32,7 @@ class PostsController extends Controller
 
         return view('posts', [
             'title'=> 'Berita Terkini',
-            'posts'=> Posts::where('category_id', '>', 0)->published()->latest()->filter(request(['search', 'category']))->paginate(9)->withQueryString(),
+            'posts'=> Posts::where('category_id', '>', 0)->published()->latest()->filter(request(['search', 'category']))->paginate(15)->withQueryString(),
             'menulist'=> $menuList
         ]);
     }

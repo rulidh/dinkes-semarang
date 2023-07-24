@@ -1,6 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
+{{-- Highchart Script --}}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
 {{-- Carousel Image Berita --}}
 @include('components.search-carousel')
 {{-- End Carousel Image Berita --}}
@@ -15,17 +22,15 @@
         <h5>Dinas Kesehatan</h5>
         @foreach ($posts as $post)
         <div class="col-sm-4 mb-3">
-          <div class="card" style="width: 16rem;">
+          <div class="card" style="width: auto;">
             @if ($post->image)
               <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top img-fluid" alt="...">
-            @else
-              <img src="/images/rumah-pelita.jpeg" alt="">  
             @endif
             <div class="card-body">
               <small class="mb-1"><i class="bi bi-clock"></i> {{ $post->created_at->diffForHumans() }} <i class="bi bi-person"></i> {{ $post->author->name }} </small>
               <h5 class="card-title">{{ $post->title }}</h5>
               <small><a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></small>
-              <p class="card-text">{{ $post->excerpt }}</p>
+              <p class="card-text">{!! $post->excerpt !!}</p>
               <a href="/post/{{ $post->slug }}" class="btn btn-outline-primary"><small>Selengkapnya...</small></a>
             </div>
           </div>
@@ -71,12 +76,12 @@
         <div class="container container-fluid">
           <div class="row">
             <div class="col-sm-8">
-              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded" alt="...">
+              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded img-fluid img" alt="...">
             </div>
             <div class="col-sm-3">
-              <h1 class="pt-5 px-5">Aplikasi Umum</h1>
-              <p class="px-5 pb-3">Dashboard data kesehatan dinas kesehatan kota semarang</p>
-              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded" alt="...">
+              <h1 class="pt-5 px-5 centered-text">Aplikasi Umum</h1>
+              <p class="px-5 pb-3 hidden-mobile">Dashboard data kesehatan dinas kesehatan kota semarang</p>
+              <img src="/images/rumah-pelita.jpeg" class="w-100 m-lg-5 rounded hidden-mobile" alt="...">
             </div>
           </div>
         </div>
@@ -91,12 +96,12 @@
         <div class="container container-fluid">
           <div class="row">
             <div class="col-sm-8">
-              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded" alt="...">
+              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded img-fluid img" alt="...">
             </div>
             <div class="col-sm-3">
-              <h1 class="pt-5 px-5">Aplikasi Umum</h1>
-              <p class="px-5 pb-3">Dashboard data kesehatan dinas kesehatan kota semarang</p>
-              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded" alt="...">
+              <h1 class="pt-5 px-5 centered-text">Aplikasi Umum</h1>
+              <p class="px-5 pb-3 hidden-mobile">Dashboard data kesehatan dinas kesehatan kota semarang</p>
+              <img src="/images/rumah-pelita.jpeg" class=" w-100 m-lg-5 rounded hidden-mobile" alt="...">
             </div>
           </div>
         </div>
@@ -111,12 +116,12 @@
         <div class="container container-fluid">
           <div class="row">
             <div class="col-sm-8">
-              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded" alt="...">
+              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded img-fluid img" alt="...">
             </div>
             <div class="col-sm-3">
-              <h1 class="pt-5 px-5">Aplikasi Umum</h1>
-              <p class="px-5 pb-3">Dashboard data kesehatan dinas kesehatan kota semarang</p>
-              <img src="/images/rumah-pelita.jpeg" class="d-block w-100 m-lg-5 rounded" alt="...">
+              <h1 class="pt-5 px-5 centered-text">Aplikasi Umum</h1>
+              <p class="px-5 pb-3 hidden-mobile">Dashboard data kesehatan dinas kesehatan kota semarang</p>
+              <img src="/images/rumah-pelita.jpeg" class="w-100 m-lg-5 rounded hidden-mobile" alt="...">
             </div>
           </div>
         </div>
@@ -138,7 +143,37 @@
 </div>
 {{-- End Aplikasi Umum --}}
 
-{{-- Puskesmas dan UPTD --}}
+{{-- Aplikasi Internal --}}
 @include('components.aplikasi-internal')
-{{-- End Puskesmas dan UPTD --}}
+{{-- End Aplikasi Internal --}}
+
+<div class="container container-fluid my-5">
+  <div class="row">
+    <div class="form-inline">
+      <div class="form-group my-2">
+        <label for="kasus">Kasus</label>
+        <select name="kasus" id="kasus" class="form-control">
+          <option value="dbd">Demam Berdarah</option>
+          <option value="leptospirosis">Leptospirosis</option>
+          <option value="kasus_malaria">Kasus Malaria</option>
+          <option value="kasus_tb_baru">Kasus TB Baru</option>
+          <option value="kelahiran_hidup">Jumlah Kelahiran Hidup</option>
+        </select>
+      </div>
+      <div class="form-group my-2">
+        <label for="tahun">Tahun</label>
+        <select name="tahun" id="tahun" class="form-control">
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>\
+        </select>
+      </div>
+      <button class="btn btn-outline-success my-2" id="lihat">Lihat</button>
+    </div>
+      <div id="chart-container"></div>
+  </div>
+</div>
+
+<script src="/js/kasus-chart.js"></script>
 @endsection

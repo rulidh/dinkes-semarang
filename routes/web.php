@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardMenuController;
 use App\Http\Controllers\DashboardPostController;
@@ -27,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostsController::class, 'index']);
 Route::get('posts/', [PostsController::class, 'getAll']);
 Route::get('post/{post:slug}', [PostsController::class, 'show']);
+Route::get('categories', [CategoryController::class, 'index']);
 
 Route::get('profile/', function(){
     $navMenu= new Menu;
@@ -38,9 +40,11 @@ Route::get('profile/', function(){
     ]);
 });
 
-Route::get('admin', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('admin', [LoginController::class, 'authenticate']);
-Route::post('logout', [LoginController::class, 'logout']);
+Route::middleware('throttle:6,1')->group(function() {
+    Route::get('admin', [LoginController::class, 'index'])->name('login')->middleware('guest');
+    Route::post('admin', [LoginController::class, 'authenticate']);
+    Route::post('logout', [LoginController::class, 'logout']);
+});
 
 Route::get('dashboard', function(){
     return view('dashboard.index', [

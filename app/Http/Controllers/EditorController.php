@@ -37,11 +37,11 @@ class EditorController extends Controller
             
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
             if(strpos($filenametostore, 'INTERNAL')){
-                $url = asset('storage/uploads/images/aplikasi-internal'.$filenametostore); 
+                $url = asset('storage/uploads/images/aplikasi-internal/'.$filenametostore); 
             }else if(strpos($filenametostore, 'UMUM')){
-                $url = asset('storage/uploads/images/aplikasi-umum'.$filenametostore); 
+                $url = asset('storage/uploads/images/aplikasi-umum/'.$filenametostore); 
             }else{
-                $url = asset('storage/uploads/images'.$filenametostore); 
+                $url = asset('storage/uploads/images/'.$filenametostore); 
             }
             $msg = 'Successfully uploaded'; 
             $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";

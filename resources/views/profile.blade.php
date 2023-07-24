@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-    <img src="images/rumah-pelita.jpeg" alt="" class="overflow-hidden img-fluid">
+    <img src="images/rumah-pelita.jpeg" alt="" class="img-fluid w-100" style="height: 100vh;">
     <div class="container container-fluid">
         <div class="row">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">

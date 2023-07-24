@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-3 pt-5">
     <div class="row d-flex align-items-center">
         <div class="col-sm-3">
             <h1 class="text-responsive text-center">Aplikasi Internal</h1>
@@ -38,11 +38,11 @@
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                    <span><i class="bi bi-arrow-left-square-fill text-dark" aria-hidden="true"></i></span>
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                    <span><i class="bi bi-arrow-right-square-fill text-dark" aria-hidden="true"></i></span>
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>

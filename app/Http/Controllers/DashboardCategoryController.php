@@ -17,7 +17,7 @@ class DashboardCategoryController extends Controller
     {
         return view('dashboard.categories.index', [
             'title'=> 'Semua Kategori',
-            'categories'=> Category::all()
+            'categories'=> Category::paginate(10)
         ]);
     }
 
@@ -79,7 +79,7 @@ class DashboardCategoryController extends Controller
         ];
 
         if($request->slug != $category->slug){
-            $rules['slug']= 'required|unique:posts';
+            $rules['slug']= 'required|unique:categories';
         }
 
         $validatedData= $request->validate($rules);

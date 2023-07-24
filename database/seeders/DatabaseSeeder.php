@@ -53,11 +53,11 @@ class DatabaseSeeder extends Seeder
 
         // Posts::factory(20)->create();
 
-        Menu::create([
-            'title'=> 'Home',
-            'parent_id'=> 0,
-            'sort_order'=> 0,
-            'slug'=> '/test'
-        ]);
+        // Menu::create([
+        //     'title'=> 'Home',
+        //     'parent_id'=> 0,
+        //     'sort_order'=> 0,
+        //     'slug'=> '/test'
+        // ]);
     }
 }

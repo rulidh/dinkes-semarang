@@ -9,7 +9,11 @@
           @foreach ($posts as $post)
           <div class="col-md-4 mb-3">
             <div class="card" style="width: 20rem;">
-              <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="...">
+              @if($post->image)
+              <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top img-fluid" alt="...">
+              @else
+              <img src="https://source.unsplash.com/1200x400?{{ $post->category->slug }}" alt="{{ $post->category->slug }}" class="card-img-top img-fluid rounded">
+              @endif
               <div class="card-body">
                 <small class="mb-1"><i class="bi bi-clock"></i> {{ $post->created_at->diffForHumans() }}</small>
                 <h5 class="card-title">{{ $post->title }}</h5>
@@ -27,4 +31,5 @@
           @endif
     </div>
   </div>
+  {{ $posts->links() }}
 @endsection

@@ -5,10 +5,10 @@
     <div class="container container-fluid">
         <div class="row">
             <div class="col-sm-8 mt-3">
-                <article>
+                <article class="d-flex flex-column">
                     <h2 class="title">{{ $post->title }}</h2>
                     @if ($post->image)
-                    <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid" alt="{{ $post->image }}">
+                    <img src="{{ asset('storage/' . $post->image) }}" class="img-fluid rounded" alt="{{ $post->image }}">
                     @else
                         @if ($post->category_id > 0)
                         <img src="https://source.unsplash.com/1200x400?{{ $post->category->slug }}" alt="{{ $post->category->slug }}" class="img-fluid rounded">
@@ -17,7 +17,8 @@
                         <img src="https://source.unsplash.com/1200x400?{{ $post->menu->slug }}" alt="{{ $post->menu->slug }}" class="img-fluid rounded">
                         @endif
                     @endif
-                    <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }}</small>
+                    <br>
+                    <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }} <i class="bi bi-people"></i> Dilihat sebanyak 1 kali</small>
                     
                     <div class="mb-3 mt-3">
                         {!! $post->body !!}

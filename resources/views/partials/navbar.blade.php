@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg {{ Request::is('/') || Request::is('profile') ? 'fixed-top' : 'sticky-top' }}" id="navbar">
         <div class="container-fluid" id="navbar-inner">
-          <a href="/"><img src="/images/logo-dinkes.png" alt="" height="100" width="75" class="m-2"></a>
+          <a href="/"><img src="/images/logo-dinkes.png" alt="" height="100" width="75" class="m-2 mobile-navbar"></a>
           <a class="navbar-brand text-light" href="/">Dinas Kesehatan<br>Kota Semarang</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
