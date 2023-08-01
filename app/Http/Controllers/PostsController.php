@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Posts;
 use App\Models\Category;
 use App\Models\Menu;
-use Nette\Utils\Paginator;
+use App\Models\Visitors;
+use Illuminate\Support\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Exists;
 
 class PostsController extends Controller
 {
@@ -13,11 +16,27 @@ class PostsController extends Controller
     {
         $menu= new Menu;
         $menuList= $menu->tree();
+        request()->session()->put('ip_address', $_SERVER['REMOTE_ADDR']);
+        $get_ip= request()->session()->get('ip_address');
+
+        if(Visitors::firstWhere('ip', $get_ip) === null) {
+            Visitors::create([
+                'ip'=> $get_ip,
+                'isOnline'=> true
+            ]);
+        }else{
+            Visitors::where('ip', $get_ip)->update(['isOnline'=> true]);
+        }
 
         return view('home', [
             'title'=> 'Dinas Kesehatan Kota Semarang',
             'posts'=> Posts::where('category_id', '>', 0)->latest()->published()->paginate(6),
-            'menulist'=> $menuList
+            'menulist'=> $menuList,
+            'visitors'=> [
+                        'real_time'=> Visitors::where('isOnline', true)->count(),
+                        'today'=> Visitors::whereDay('updated_at', now())->count(),
+                        'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
+                        ]
         ]);
     }
 
@@ -33,7 +52,12 @@ class PostsController extends Controller
         return view('posts', [
             'title'=> 'Berita Terkini',
             'posts'=> Posts::where('category_id', '>', 0)->published()->latest()->filter(request(['search', 'category']))->paginate(15)->withQueryString(),
-            'menulist'=> $menuList
+            'menulist'=> $menuList,
+            'visitors'=> [
+                'real_time'=> Visitors::where('isOnline', true)->count(),
+                'today'=> Visitors::whereDate('created_at', now())->count(),
+                'month'=> Visitors::whereMonth('created_at', now())->count()
+                ]
         ]);
     }
 
@@ -46,7 +70,14 @@ class PostsController extends Controller
             'title'=> "$post->title",
             'post'=> $post,
             'categories'=> Category::all(),
-            'menulist'=> $menuList  
+            'count'=> $post->increment('view_count'),
+            'menulist'=> $menuList,
+            'posts'=> Posts::where('category_id', '>', 0)->latest()->published()->paginate(4),
+            'visitors'=> [
+                'real_time'=> Visitors::where('isOnline', true)->count(),
+                'today'=> Visitors::whereDate('updated_at', now())->count(),
+                'month'=> Visitors::whereMonth('created_at', now())->count()
+                ]
         ]);
     }
 
@@ -59,7 +90,12 @@ class PostsController extends Controller
             'title'=> $menu->title,
             'post'=> Posts::firstWhere('menu_id', "$menu->id"),
             'categories'=> Category::all(),
-            'menulist'=> $menuList
+            'menulist'=> $menuList,
+            'visitors'=> [
+                'real_time'=> Visitors::where('isOnline', true)->count(),
+                'today'=> Visitors::whereDate('created_at', now())->count(),
+                'month'=> Visitors::whereMonth('created_at', now())->count()
+                ]
         ]);
     }
 }

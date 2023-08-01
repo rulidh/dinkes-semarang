@@ -11,7 +11,9 @@ use App\Http\Controllers\EditorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\VisitorsController;
 use App\Models\Menu;
+use App\Models\Visitors;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,18 +27,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('ipOffline', [VisitorsController::class, 'isOffline'])->name('ip.offline');
 Route::get('/', [PostsController::class, 'index']);
 Route::get('posts/', [PostsController::class, 'getAll']);
 Route::get('post/{post:slug}', [PostsController::class, 'show']);
 Route::get('categories', [CategoryController::class, 'index']);
 
-Route::get('profile/', function(){
+Route::get('/profile/visi-misi', function(){
     $navMenu= new Menu;
     $menuList= $navMenu->tree();
 
-    return view('profile', [
-        'title'=> 'Profile Kesehatan',
-        'menulist'=> $menuList
+    return view('visi-misi', [
+        'title'=> 'Visi Misi',
+        'menulist'=> $menuList,
+        'visitors'=> [
+            'real_time'=> Visitors::where('isOnline', true)->count(),
+            'today'=> Visitors::whereDate('created_at', now())->count(),
+            'month'=> Visitors::whereMonth('created_at', now())->count()
+            ]
+    ]);
+});
+Route::get('/profile/profil-kesehatan', function(){
+    $navMenu= new Menu;
+    $menuList= $navMenu->tree();
+
+    return view('profil-kesehatan', [
+        'title'=> 'Profil Kesehatan',
+        'menulist'=> $menuList,
+        'visitors'=> [
+            'real_time'=> Visitors::where('isOnline', true)->count(),
+            'today'=> Visitors::whereDate('created_at', now())->count(),
+            'month'=> Visitors::whereMonth('created_at', now())->count()
+            ]
     ]);
 });
 

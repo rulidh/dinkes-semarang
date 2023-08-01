@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('excerpt');
             $table->longText('body');
+            $table->integer('view_count')->default(0);
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
         });

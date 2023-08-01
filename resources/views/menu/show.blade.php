@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ck-tables.css">
 <div class="container container-fluid">
     <div class="row">
         <div class="mt-3 col-lg-10">

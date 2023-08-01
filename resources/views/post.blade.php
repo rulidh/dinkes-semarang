@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/ck-tables.css">
     <div class="container container-fluid">
         <div class="row">
             <div class="col-sm-8 mt-3">
@@ -18,7 +18,7 @@
                         @endif
                     @endif
                     <br>
-                    <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }} <i class="bi bi-people"></i> Dilihat sebanyak 1 kali</small>
+                    <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }}  <i class="bi bi-people"></i> Dilihat {{ $post->view_count }}x</small>
                     
                     <div class="mb-3 mt-3">
                         {!! $post->body !!}
@@ -27,7 +27,7 @@
                 <a href="/" class="text-decoration-none btn btn-outline-primary">Back</a>
             </div>
             <div class="col-sm-4 mt-lg-5">
-                <div class="card my-3" style="width: 18rem; background-color: red;">
+                <div class="card my-2" style="width: auto; background-color: red;">
                     <div class="card-header" style="color: white;">
                       Kategori
                     </div>
@@ -36,7 +36,25 @@
                         <li class="list-group-item"><a href="/posts?category={{ $category->slug }}" class="text-decoration-none">{{ $category->name }}</a></li>
                         @endforeach
                     </ul>
-                  </div>
+                </div>
+
+                <h5>Berita Lainnya</h5>
+                @foreach ($posts as $item)
+                    @if ($item->slug != $post->slug)
+                    <div class="card my-2">
+                        @if ($item->image)
+                        <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top img-fluid" alt="...">
+                        @endif
+                        <div class="card-body" style="width: auto;">
+                            <small class="mb-1"> {{ $item->created_at->diffForHumans() }} • {{ $item->author->name }} </small>
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <small><a href="/posts?category={{ $item->category->slug }}" class="text-decoration-none">{{ $item->category->name }}</a></small>
+                            <p class="card-text">{!! $item->excerpt !!}</p>
+                            <a href="/post/{{ $item->slug }}" class="btn btn-outline-primary"><small>Selengkapnya...</small></a>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

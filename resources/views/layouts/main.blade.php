@@ -30,4 +30,15 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script src="/js/CardCarousel.js"></script>
+<script>
+    $( window ).on( "unload", function() {
+        $.ajax({
+            url: "{{ route('ip.offline') }}",
+            type: 'get',
+            success: function(result) {
+                console.log(result)
+            }
+        });
+    } );
+</script>
 </html>

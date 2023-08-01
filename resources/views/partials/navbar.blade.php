@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg {{ Request::is('/') || Request::is('profile') ? 'fixed-top' : 'sticky-top' }}" id="navbar">
+<nav class="navbar navbar-expand-lg sticky-top" id="navbar">
         <div class="container-fluid" id="navbar-inner">
           <a href="/"><img src="/images/logo-dinkes.png" alt="" height="100" width="75" class="m-2 mobile-navbar"></a>
           <a class="navbar-brand text-light" href="/">Dinas Kesehatan<br>Kota Semarang</a>
@@ -10,8 +10,16 @@
               <li class="nav-item m-1">
                 <a class="nav-link {{ Request::is('/') ? 'active' : '' }} btn btn-dark text-light" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item m-1">
-                <a class="nav-link {{ Request::is('profile') ? 'active' : '' }} btn btn-dark text-light" href="/profile">Profile</a>
+              <li class="nav-item m-1 dropdown">
+                <a href="/profile" class="nav-link btn btn-dark text-light" id="dropdown">Profil</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownBtn">
+                  <li class="nav-item m-1">
+                    <a href="/profile/visi-misi" class="nav-link dropdown-toggle">Visi Misi</a>
+                  </li>
+                  <li class="nav-item m-1">
+                    <a href="/profile/profil-kesehatan" class="nav-link dropdown-toggle">Profil Kesehatan</a>
+                  </li>
+                </ul>
               </li>
               @each('partials.submenu', $menulist, 'menu')
               <li class="nav-item m-1">
