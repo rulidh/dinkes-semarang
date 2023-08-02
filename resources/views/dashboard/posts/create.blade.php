@@ -6,7 +6,7 @@
 </div>
 
 <div class="col-lg-8">
-    <form action="/dashboard/posts" method="post" class="mb-5" enctype="multipart/form-data">
+    <form action="/dashboard/posts" method="POST" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
           <label for="title" class="form-label">Judul</label>
@@ -100,7 +100,7 @@
     // CKEditor
     CKEDITOR
         .replace('body', {
-            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadUrl: "{{ route('upload', ['_token' => csrf_token() ]) }}",
             filebrowserUploadMethod: 'form'
         })
         .catch( error => {

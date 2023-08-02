@@ -9,6 +9,7 @@ use App\Models\Menu;
 use Illuminate\Support\Str;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class DashboardPostController extends Controller
 {

@@ -49,7 +49,7 @@
     </div>
     {{-- End Berita Dinkes --}}
 
-    <div class="vr mb-5 rounded" style="padding: 2px;"></div>
+    <div class="vr mb-5 rounded rule-mobile" style="padding: 2px;"></div>
 
     {{-- Berita Pemkot --}}
     <div class="col-sm-1">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class EditorController extends Controller
 {
@@ -32,6 +33,7 @@ class EditorController extends Controller
                     $request->file('upload')->storeAs('uploads/images/aplikasi-umum', $filenametostore);
                 }else{
                     $request->file('upload')->storeAs('uploads/images', $filenametostore);
+                    // Image::make($request->file('upload'))->resize(100, 100, function($constraint) {$constraint->aspectRatio();})->storeAs('uploads/images/' . $filenametostore);
                 }
             }
             

@@ -8,7 +8,7 @@ use App\Models\Visitors;
 class VisitorsController extends Controller
 {
     public function isOffline() {
-        request()->session()->forget('ip_address');
+        request()->session()->invalidate();
 
         Visitors::where('ip', $_SERVER['REMOTE_ADDR'])->update(['isOnline'=> false]);
     }

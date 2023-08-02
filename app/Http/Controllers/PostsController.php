@@ -55,8 +55,8 @@ class PostsController extends Controller
             'menulist'=> $menuList,
             'visitors'=> [
                 'real_time'=> Visitors::where('isOnline', true)->count(),
-                'today'=> Visitors::whereDate('created_at', now())->count(),
-                'month'=> Visitors::whereMonth('created_at', now())->count()
+                'today'=> Visitors::whereDay('updated_at', now())->count(),
+                'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
                 ]
         ]);
     }
@@ -75,8 +75,8 @@ class PostsController extends Controller
             'posts'=> Posts::where('category_id', '>', 0)->latest()->published()->paginate(4),
             'visitors'=> [
                 'real_time'=> Visitors::where('isOnline', true)->count(),
-                'today'=> Visitors::whereDate('updated_at', now())->count(),
-                'month'=> Visitors::whereMonth('created_at', now())->count()
+                'today'=> Visitors::whereDay('updated_at', now())->count(),
+                'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
                 ]
         ]);
     }
@@ -93,8 +93,8 @@ class PostsController extends Controller
             'menulist'=> $menuList,
             'visitors'=> [
                 'real_time'=> Visitors::where('isOnline', true)->count(),
-                'today'=> Visitors::whereDate('created_at', now())->count(),
-                'month'=> Visitors::whereMonth('created_at', now())->count()
+                'today'=> Visitors::whereDay('updated_at', now())->count(),
+                'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
                 ]
         ]);
     }

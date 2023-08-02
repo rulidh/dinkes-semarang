@@ -41,11 +41,16 @@ body {
     .siaga-covid-mobile {
       margin-top: 10px;
     }
+
+    .rule-mobile {
+      width: 100vh;
+      margin-bottom: 10px !important;
+    }
   }
 
   @media(min-width: 1000px) {
     img.non-mobile {
-      height: 50%;
+      height: 40rem;
     }
   }
 
@@ -69,7 +74,7 @@ ul#kata-data-list li span:nth-child(1) {
 }
 
 ul#statistik-pengunjung li span:nth-child(1) {
-  width: 300px;
+  width: 240px;
 }
 
 #icon.ms-3 a{

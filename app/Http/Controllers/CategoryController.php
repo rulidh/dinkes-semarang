@@ -18,7 +18,11 @@ class CategoryController extends Controller
             'title'=> 'Semua Kategori',
             'categories'=> Category::all(),
             'menulist'=> $menuList,
-            'realtime_visitor'=> Visitors::where('isOnline', true)->count()
+            'visitors'=> [
+                'real_time'=> Visitors::where('isOnline', true)->count(),
+                'today'=> Visitors::whereDay('updated_at', now())->count(),
+                'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
+                ]
         ]);
     }
 }
