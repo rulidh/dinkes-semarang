@@ -63,7 +63,16 @@ class DashboardPostController extends Controller
         }
         
         if($request->file('image')){
-            $validatedData['image']= $request->file('image')->store('post-images');
+            // $validatedData['image']= $request->file('image')->store('post-images');
+
+            $image= Image::make($request->file('image'))
+            ->resize(400, null, function ($constraint) { $constraint->aspectRatio(); } )
+            ->encode('jpg');
+
+            $hash= md5($image->__toString().now()) . '.' . $request->file('image')->getClientOriginalExtension() ;
+                        
+            Storage::disk('public')->put('post-images/' . $hash , $image);
+            $validatedData['image']= 'post-images/'. $hash;
         }
 
         $validatedData['user_id']= auth()->user()->id;
@@ -138,7 +147,16 @@ class DashboardPostController extends Controller
             if($request->oldImage){
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image']= $request->file('image')->store('post-images');
+            $image= Image::make($request->file('image'))
+            ->resize(400, null, function ($constraint) { $constraint->aspectRatio(); } )
+            ->encode('jpg');
+
+            $hash= md5($image->__toString().now()) . '.' . $request->file('image')->getClientOriginalExtension() ;
+                        
+            Storage::disk('public')->put('post-images/' . $hash , $image);
+            $validatedData['image']= 'post-images/'. $hash;
+            
+            // $validatedData['image']= $request->file('image')->store('post-images');
         }
 
         $validatedData['user_id']= auth()->user()->id;

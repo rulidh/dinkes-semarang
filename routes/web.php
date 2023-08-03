@@ -90,4 +90,4 @@ Route::resource('dashboard/categories', DashboardCategoryController::class)->exc
 Route::get('dashboard/menu/checkSlug', [DashboardMenuController::class, 'checkSlug'])->middleware('auth');
 Route::resource('dashboard/menu', DashboardMenuController::class)->except('show')->middleware('auth');
 
-Route::post('dashboard/posts/create/image_upload', [EditorController::class, 'upload'])->name('upload');
+Route::post('dashboard/posts/create/image_upload', [EditorController::class, 'upload'])->name('image.upload');

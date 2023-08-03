@@ -100,7 +100,7 @@
     // CKEditor
     CKEDITOR
         .replace('body', {
-            filebrowserUploadUrl: "{{ route('upload', ['_token' => csrf_token() ]) }}",
+            filebrowserUploadUrl: "{{ route('image.upload', ['_token' => csrf_token() ]) }}",
             filebrowserUploadMethod: 'form'
         })
         .catch( error => {

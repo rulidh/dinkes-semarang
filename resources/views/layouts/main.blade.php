@@ -38,5 +38,11 @@
             success: console.log(e)
         });
     });
+    $(window).unload(function(){
+        $.ajax({
+            url: "{{ route('ip.offline') }}",
+            type: 'get',
+        });
+    });
 </script>
 </html>

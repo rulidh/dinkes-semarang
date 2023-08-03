@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class EditorController extends Controller
 {
@@ -23,17 +24,22 @@ class EditorController extends Controller
             $filenametostore = $filename.'_'.time().'.'.$extension;
        
             $fileExtension= ['zip', 'pdf', 'rar'];
+            
+            // Compressing Image
+            $image= Image::make($request->file('upload'))
+            ->resize(400, null, function ($constraint) { $constraint->aspectRatio(); } )
+            ->encode("$extension");
+
             //Upload File
             if(in_array($extension, $fileExtension)) {
                 $request->file('upload')->storeAs('uploads/files', $filenametostore);
-            }else{   
+            }else{
                 if(strpos($filenametostore, 'INTERNAL')){
-                    $request->file('upload')->storeAs('uploads/images/aplikasi-internal', $filenametostore);
+                    Storage::disk('public')->put('uploads/images/aplikasi-internal/' . $filenametostore , $image);
                 }else if(strpos($filenametostore, 'UMUM')){
-                    $request->file('upload')->storeAs('uploads/images/aplikasi-umum', $filenametostore);
+                    Storage::disk('public')->put('uploads/images/aplikasi-umum/' . $filenametostore , $image);
                 }else{
-                    $request->file('upload')->storeAs('uploads/images', $filenametostore);
-                    // Image::make($request->file('upload'))->resize(100, 100, function($constraint) {$constraint->aspectRatio();})->storeAs('uploads/images/' . $filenametostore);
+                    Storage::disk('public')->put('uploads/images/' . $filenametostore , $image);
                 }
             }
             
