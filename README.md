@@ -1,4 +1,4 @@
-<p align="center"><a href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1" target="_blank"><img src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://mediabangsa.co.id/wp-content/uploads/2022/10/figma-logo-1-664x332.png" width="225" height="225" alt="Figma Logo"></a></p>
+<p align="center"><a href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1" target="_blank"><img src="https://mediabangsa.co.id/wp-content/uploads/2022/10/figma-logo-1-664x332.png" width="225" height="225" alt="Figma Logo"></a></p>
 
 ## Figma Design for Dinas Kesehatan Kota Semarang Website
 
