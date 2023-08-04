@@ -4,7 +4,6 @@
 
 <a target="_blank" href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1">Click this link to open our figma design.</a>
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 ## Prompt IMG Creator
 
@@ -16,6 +15,8 @@
 
 <p>kata benda pada promt ikon di web yang disedain sistem pegawai dalam rumah sakit,ilustrasi sistem informasi, pegawai, dan rumah sakit sistem informasi, pelaporan, dan rumah sakit sistem informasi, surat, gawat, dan bahaya sistem informasi, klinik, kesehatan sistem informasi, pekerja, dan dokter sistem informasi, kesehtan, dan lingkungan</p>
 
+
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
