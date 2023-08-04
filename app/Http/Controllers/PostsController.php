@@ -40,7 +40,8 @@ class PostsController extends Controller
             'app_internal'=> Posts::firstWhere('slug', 'aplikasi-internal'),
             'app_umum'=>Posts::firstWhere('slug', 'aplikasi-umum'),
             'puskesmas'=> Posts::firstWhere('slug', 'puskesmas-carousel'),
-            'modal'=> Posts::firstWhere('slug', 'modal')
+            'modal'=> Posts::firstWhere('slug', 'modal'),
+            'lembaga_terkait'=> Posts::firstWhere('slug', 'lembaga-terkait')
         ]);
     }
 

@@ -20,13 +20,13 @@
                     <br>
                     <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }}  <i class="bi bi-people"></i> Dilihat {{ $post->view_count }}x</small>
                     
-                    <div class="mb-3 mt-3">
+                    <div class="mb-3 mt-3 overflow-x-auto">
                         {!! $post->body !!}
                     </div>
                 </article>
                 <a href="/" class="text-decoration-none btn btn-outline-primary">Back</a>
             </div>
-            <div class="col-sm-4 mt-lg-5">
+            <div class="col-sm-4 mt-lg-5 post-mobile">
                 <div class="card my-2" style="width: auto; background-color: red;">
                     <div class="card-header" style="color: white;">
                       Kategori

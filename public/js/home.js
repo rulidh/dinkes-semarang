@@ -100,47 +100,45 @@ Highcharts.setOptions({
   }
 });
 
-// $(document).ready(function() {
-//     $.get('/storage/uploads/files/tes.csv', function(csv) {
-//       Highcharts.setOptions({
-//         chart: {
-//           style: {
-//             fontFamily: 'Unica One'
-//           }
-//         }
-//       });
+window.onload = () => {
+  $('#onload').modal('show');
+}
 
-//       Highcharts.chart('chart-container', {
-//         chart: {
-//             type: 'spline',
-//             width: 700
-//         },
-//         subtitle: {
-//           text: 'SUMBER: ' +
-//               'HEWS'
-//         },
-//         title: {
-//             text: 'KASUS DBD TAHUN 2022'
-//         },
-//         data: {
-//           csv: csv
-//         },
-//         tooltip: {
-//           crosshairs: true,
-//           shared: true
-//         },
-//         yAxis: {
-//           title: {text: ''}
-//         },
-//         legend: {
-//           labelFormatter: function() {
-//             var total= 0;
-//             for(var i= this.yData.length; i--;) {
-//               total+= this.yData[i];
-//             };
-//             return this.name + ' (Total: '+ total+ ')';
-//           }
-//         }
-//       });
-//     });
-//   });
+$('.modal-content').children('div')
+  .addClass('modal-body')
+  .removeAttr('style').children('img')
+  .removeAttr('style')
+  .addClass('imagepreview img-fluid rounded mx-auto d-block')
+  .attr('style', 'width: 100%;');
+
+$('#app-umum').children('div')
+.removeAttr('style')
+.addClass('col').children('a').children('img')
+  .removeAttr('style')
+  .addClass('app');
+
+$('#app-internal').children('div')
+.removeAttr('style')
+.addClass('col').children('a').children('img')
+  .removeAttr('style')
+  .addClass('app');
+
+$('#lembaga-terkait').children('div').children('img')
+  .removeAttr('style')
+  .attr('id', 'LT')
+  .addClass('img-fluid');
+
+$('#lembaga-terkait').children('div')
+  .removeAttr('style')
+  .addClass('col-md-3 m-3').children('a').children('img')
+      .removeAttr('style')
+      .attr('id', 'LT')
+      .addClass('img-fluid');
+
+$('#puskesmas').children('div')
+.removeAttr('style')
+.addClass('carousel-item carousel-items').children('a').addClass('col-md-3 px-1').children('img')
+  .addClass('img-fluid rounded p_uptd')
+  .removeAttr('style');
+
+$('#puskesmas').children('div:first-child').addClass('active');

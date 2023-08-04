@@ -53,6 +53,8 @@
         </div>
         <small><button class="btn btn-outline-success my-1" id="lihat">Lihat</button></small>
       </div>
-      <div id="chart-container" class=""></div>
+      <div class="overflow-x-auto">
+        <div id="chart-container" class=""></div>
+      </div>
     </div>
   </div>

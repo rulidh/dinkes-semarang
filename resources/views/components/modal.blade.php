@@ -15,16 +15,3 @@
         </div>
     </div>
 </div>
-<!--Modal JS Script -->
-<script type="text/javascript">
-    window.onload = () => {
-        $('#onload').modal('show');
-    }
-
-    $('.modal-content').children('div')
-        .addClass('modal-body')
-        .removeAttr('style').children('img')
-        .removeAttr('style')
-        .addClass('imagepreview img-fluid rounded mx-auto d-block')
-        .attr('style', 'width: 100%;');
-</script>

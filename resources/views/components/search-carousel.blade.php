@@ -5,21 +5,12 @@
         @if ($posts[0]->image)
         <img src="{{ url(asset('storage/' . $posts[0]->image)) }}" class="d-block img img-fluid" alt="...">
         @else
-        <img src="{{ url(asset('storage/uploads/images/gedung-dkk_1690266033.jpg')) }}" class="d-block" alt="">
+        <img src="{{ url(asset('storage/uploads/images/gedung-dkk_1690266033.jpg')) }}" class="d-block img img-fluid" alt="">
         @endif
       </div>
       @else
-      <img src="{{ url(asset('storage/uploads/images/gedung-dkk_1690266033.jpg')) }}" alt="">
+      <img src="{{ url(asset('storage/uploads/images/gedung-dkk_1690266033.jpg')) }}" class="d-block img img-fluid" alt="">
       @endif
-      {{-- @foreach ($posts->skip(1) as $post)
-      <div class="carousel-item">
-        @if ($post->image)
-        <img src="{{ asset('storage/' . $post->image) }}" class="d-block w-100 img-fluid overflow-hidden non-mobile" alt="...">
-        @else
-        {{ $post->skip() }}
-        @endif
-      </div>
-      @endforeach --}}
       <div class="container mx-2 px-2">
         <div class="row">
           <div class="card-img-overlay container-fluid d-flex flex-column justify-content-center" style="width: 25rem;">

@@ -1,14 +1,3 @@
-<style>
-    .p_uptd{
-    transition: .3s;
-    }
-    .p_uptd:hover{
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-        border-radius: 17px
-    }
-</style>
-
 <div class="container my-5">
     <div class="row">
         <div class="text-center">
@@ -34,11 +23,3 @@
         </div>
     </div>
 </div>
-<script>
-    $('#puskesmas').children('div')
-        .removeAttr('style')
-        .addClass('carousel-item carousel-items').children('a').addClass('col-md-3 px-1').children('img')
-                .addClass('img-fluid rounded p_uptd')
-                .removeAttr('style');
-    $('#puskesmas').children('div:first-child').addClass('active');
-</script>

@@ -46,6 +46,10 @@ body {
       width: 100vh;
       margin-bottom: 10px !important;
     }
+
+    .post-mobile {
+      display: none;
+    }
   }
 
   @media(min-width: 1000px) {
@@ -96,4 +100,45 @@ ul#statistik-pengunjung li span:nth-child(1) {
 
 .bi {
   color: #262D33;
+}
+
+.p_uptd{
+  transition: .3s;
+}
+
+.p_uptd:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 17px
+}
+
+#LT{
+  transition: .3s;
+}
+
+#LT:hover{
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 17px
+}
+
+#lembaga{
+  background-color: #F3C402;
+}
+
+img.app{
+  width: 130px;
+  height: 130px;
+  margin: 10px;
+  transition: .3s;
+}
+
+img.app:hover{
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 17px;
+}
+
+#app_umum{
+  background-color: #FA1F23;
 }

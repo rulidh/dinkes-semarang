@@ -2,7 +2,7 @@
 
 ## Figma Design for Dinas Kesehatan Kota Semarang Website
 
-<a href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1">Click this link to open our figma design.</a>
+<a targer="_blank" href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1">Click this link to open our figma design.</a>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 

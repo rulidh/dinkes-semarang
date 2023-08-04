@@ -13,7 +13,7 @@
                 @endif
                 <small><i class="bi bi-clock"></i> Dibuat pada {{ $post->created_at->diffForHumans() }}</small>
                 
-                <div class="mb-3 mt-3">
+                <div class="mb-3 mt-3 overflow-x-auto">
                     {!! $post->body !!}
                 </div>
             </article>
