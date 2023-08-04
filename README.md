@@ -6,6 +6,16 @@
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+## Prompt IMG Creator
+
+<p>Bagaimana cara membuat perintah yang lebih baik?</p>
+<p>Image Creator berbeda dengan mencari gambar di Bing. Berfungsi paling baik ketika Anda sangat deskriptif. Jadi, berkreasilah dan tambahkan detail: kata sifat, lokasi, bahkan gaya artistik seperti "seni digital" dan "fotorealistik".</p>
+<p>Berikut adalah contohnya: alih-alih perintah teks "makhluk" - cobalah mengirimkan perintah "makhluk berbulu mengenakan kacamata hitam, seni digital".</p>
+
+<p>contoh promt untuk mencari ikon: kata benda, warna, jenis art/gaya gambar hospital and sistem, colorful, icon ilustrasion</p>
+
+<p>kata benda pada promt ikon di web yang disedain sistem pegawai dalam rumah sakit,ilustrasi sistem informasi, pegawai, dan rumah sakit sistem informasi, pelaporan, dan rumah sakit sistem informasi, surat, gawat, dan bahaya sistem informasi, klinik, kesehatan sistem informasi, pekerja, dan dokter sistem informasi, kesehtan, dan lingkungan</p>
+
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
