@@ -36,7 +36,11 @@ class PostsController extends Controller
                         'real_time'=> Visitors::where('isOnline', true)->count(),
                         'today'=> Visitors::whereDay('updated_at', now())->count(),
                         'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
-                        ]
+            ],
+            'app_internal'=> Posts::firstWhere('slug', 'aplikasi-internal'),
+            'app_umum'=>Posts::firstWhere('slug', 'aplikasi-umum'),
+            'puskesmas'=> Posts::firstWhere('slug', 'puskesmas-carousel'),
+            'modal'=> Posts::firstWhere('slug', 'modal')
         ]);
     }
 
@@ -65,37 +69,45 @@ class PostsController extends Controller
     {
         $menu= new Menu;
         $menuList= $menu->tree();
-
-        return view('post', [
-            'title'=> "$post->title",
-            'post'=> $post,
-            'categories'=> Category::all(),
-            'count'=> $post->increment('view_count'),
-            'menulist'=> $menuList,
-            'posts'=> Posts::where('category_id', '>', 0)->latest()->published()->paginate(4),
-            'visitors'=> [
-                'real_time'=> Visitors::where('isOnline', true)->count(),
+        
+        if($post->isPublished()){
+            return view('post', [
+                'title'=> "$post->title",
+                'post'=> $post,
+                'categories'=> Category::all(),
+                'count'=> $post->increment('view_count'),
+                'menulist'=> $menuList,
+                'posts'=> Posts::where('category_id', '>', 0)->latest()->published()->paginate(4),
+                'visitors'=> [
+                    'real_time'=> Visitors::where('isOnline', true)->count(),
                 'today'=> Visitors::whereDay('updated_at', now())->count(),
                 'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
                 ]
-        ]);
+            ]);
+        }else{
+            abort(404);
+        }
     }
-
+        
     public function menushow(Menu $menu)
     {
         $navMenu= new Menu;
         $menuList= $navMenu->tree();
 
-        return view('menu.show', [
-            'title'=> $menu->title,
-            'post'=> Posts::firstWhere('menu_id', "$menu->id"),
-            'categories'=> Category::all(),
-            'menulist'=> $menuList,
-            'visitors'=> [
-                'real_time'=> Visitors::where('isOnline', true)->count(),
-                'today'=> Visitors::whereDay('updated_at', now())->count(),
-                'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
-                ]
-        ]);
+        if(Posts::firstWhere('menu_id', "$menu->id")->isPublished()){
+            return view('menu.show', [
+                'title'=> $menu->title,
+                'post'=> Posts::firstWhere('menu_id', "$menu->id"),
+                'categories'=> Category::all(),
+                'menulist'=> $menuList,
+                'visitors'=> [
+                    'real_time'=> Visitors::where('isOnline', true)->count(),
+                    'today'=> Visitors::whereDay('updated_at', now())->count(),
+                    'month'=> Visitors::whereMonth('updated_at', now()->month)->count()
+                    ]
+            ]);
+        }else{
+            abort(404);
+        }
     }
 }

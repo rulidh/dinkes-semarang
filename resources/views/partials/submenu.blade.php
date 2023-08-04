@@ -1,6 +1,6 @@
 {{-- Terdapat children menu pada parent --}}
 <li class="nav-item m-1 @if($menu->parent_id === 0 && count($menu->children) > 0) dropdown @endif">
-    <a href="{{ url("menu/$menu->slug") }}" class="nav-link dropdown-toggle @if($menu->parent_id === 0) btn btn-dark text-light @endif" @if($menu->parent_id === 0 && count($menu->children) > 0) id="dropdown" @endif>
+    <a href="{{ url("menu/$menu->slug") }}" class="nav-link @if($menu->parent_id === 0) btn btn-dark text-light @endif" @if($menu->parent_id === 0 && count($menu->children) > 0) id="dropdown" data-bs-toggle="dropdown" @endif>
         {{ $menu->title }} 
         @if(count($menu->children) > 0) 
             <i class="fa fa-caret-down"></i>

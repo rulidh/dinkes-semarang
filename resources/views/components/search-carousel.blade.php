@@ -1,17 +1,17 @@
-<div id="carousel" class="carousel slide mb-lg-5" data-bs-touch="true">
+<div class="container mb-lg-5" data-bs-touch="true">
     <div class="carousel-inner">
       @if ($posts->count())
       <div class="carousel-item active">
         @if ($posts[0]->image)
-        <img src="{{ asset('storage/' . $posts[0]->image) }}" class="d-block w-100 overflow-hidden img-fluid non-mobile" alt="...">
+        <img src="{{ url(asset('storage/' . $posts[0]->image)) }}" class="d-block img img-fluid" alt="...">
         @else
-        <img src="{{ asset('storage/uploads/images/gedung-dkk_1690266033.jpg') }}" class="d-block w-100" alt="">
+        <img src="{{ url(asset('storage/uploads/images/gedung-dkk_1690266033.jpg')) }}" class="d-block" alt="">
         @endif
       </div>
       @else
-      <img src="{{ asset('storage/uploads/images/gedung-dkk_1690266033.jpg') }}" alt="">
+      <img src="{{ url(asset('storage/uploads/images/gedung-dkk_1690266033.jpg')) }}" alt="">
       @endif
-      @foreach ($posts->skip(1) as $post)
+      {{-- @foreach ($posts->skip(1) as $post)
       <div class="carousel-item">
         @if ($post->image)
         <img src="{{ asset('storage/' . $post->image) }}" class="d-block w-100 img-fluid overflow-hidden non-mobile" alt="...">
@@ -19,7 +19,7 @@
         {{ $post->skip() }}
         @endif
       </div>
-      @endforeach
+      @endforeach --}}
       <div class="container mx-2 px-2">
         <div class="row">
           <div class="card-img-overlay container-fluid d-flex flex-column justify-content-center" style="width: 25rem;">
@@ -39,12 +39,12 @@
         </form>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+    {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
-    </button>
+    </button> --}}
   </div>

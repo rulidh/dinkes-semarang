@@ -28,7 +28,7 @@
         <div class="col-sm-4 mb-3">
           <div class="card" style="width: auto;">
             @if ($post->image)
-              <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top img-fluid" alt="...">
+              <img src="{{ asset('storage/' . $post->image) }}" style="height: 10rem;" class="card-img-top img-fluid" alt="...">
             @endif
             <div class="card-body">
               <small class="mb-1"> {{ $post->created_at->diffForHumans() }} • {{ $post->author->name }} </small>

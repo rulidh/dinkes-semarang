@@ -28,7 +28,7 @@ class EditorController extends Controller
             // Compressing Image
             $image= Image::make($request->file('upload'))
             ->resize(400, null, function ($constraint) { $constraint->aspectRatio(); } )
-            ->encode("$extension");
+            ->encode("$extension", 100);
 
             //Upload File
             if(in_array($extension, $fileExtension)) {
@@ -45,11 +45,11 @@ class EditorController extends Controller
             
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
             if(strpos($filenametostore, 'INTERNAL')){
-                $url = asset('storage/uploads/images/aplikasi-internal/'.$filenametostore); 
+                $url = url(asset('storage/uploads/images/aplikasi-internal/'.$filenametostore)); 
             }else if(strpos($filenametostore, 'UMUM')){
-                $url = asset('storage/uploads/images/aplikasi-umum/'.$filenametostore); 
+                $url = url(asset('storage/uploads/images/aplikasi-umum/'.$filenametostore)); 
             }else{
-                $url = asset('storage/uploads/images/'.$filenametostore); 
+                $url = url(asset('storage/uploads/images/'.$filenametostore)); 
             }
             $msg = 'Successfully uploaded'; 
             $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";

@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function() {
             DB::table('visitors')->update(['isOnline'=> 0]);
-        })->daily();
+        })->dailyAt('08:00');
     }
 
     /**
