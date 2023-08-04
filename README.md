@@ -1,6 +1,6 @@
-<p align="center"><a href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1" target="_blank"><img src="https://cdn.freebiesupply.com/logos/large/2x/figma-1-logo-png-transparent.png" width="250" height="225" alt="Figma Logo"></a></p>
+<p align="center"><a href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1" target="_blank"><img src="https://cdn.freebiesupply.com/logos/large/2x/figma-1-logo-png-transparent.png" width="225" height="225" alt="Figma Logo"></a></p>
 
-## Figma for Dinas Kesehatan Kota Semarang Website
+## Figma Design for Dinas Kesehatan Kota Semarang Website
 
 <a href="https://www.figma.com/file/K7Ws0sRNmWvxg2tQ3RKt9C/web-dkk?type=design&node-id=0%3A1&mode=design&t=8P5wMVHSvHeFMuyP-1">Click this link to open our figma design.</a>
 
