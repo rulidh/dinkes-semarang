@@ -1,3 +1,4 @@
+// Berita Pemkot Jquery
 $.get('https://dinkes.semarangkota.go.id/content/ajax/info_semarang', {},
 function(data) {
   tampil = '';
@@ -14,6 +15,7 @@ function(data) {
   $('#berita-pemkot').html(tampil);
 });
 
+// Kata Data Jquery
 $.get('https://dinkes.semarangkota.go.id/content/ajax/getData', {
   content: 'data'
 },
@@ -100,6 +102,7 @@ Highcharts.setOptions({
   }
 });
 
+// Modal Jquery
 window.onload = () => {
   $('#onload').modal('show');
 }
@@ -111,18 +114,21 @@ $('.modal-content').children('div')
   .addClass('imagepreview img-fluid rounded mx-auto d-block')
   .attr('style', 'width: 100%;');
 
+// Aplikasi Umum Jquery
 $('#app-umum').children('div')
 .removeAttr('style')
 .addClass('col').children('a').children('img')
   .removeAttr('style')
   .addClass('app');
 
+// Aplikasi Internal Jquery
 $('#app-internal').children('div')
 .removeAttr('style')
 .addClass('col').children('a').children('img')
   .removeAttr('style')
   .addClass('app');
 
+// Lembaga Jquery
 $('#lembaga-terkait').children('div').children('img')
   .removeAttr('style')
   .attr('id', 'LT')
@@ -135,6 +141,7 @@ $('#lembaga-terkait').children('div')
       .attr('id', 'LT')
       .addClass('img-fluid');
 
+// Puskesmas Jquery
 $('#puskesmas').children('div')
 .removeAttr('style')
 .addClass('carousel-item carousel-items').children('a').addClass('col-md-3 px-1').children('img')

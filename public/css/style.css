@@ -3,6 +3,11 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  color: #262d33;
+}
+
+h1, h2 {
+  font-weight: bold;
 }
 
   @media (max-width: 1000px) {
@@ -102,6 +107,7 @@ ul#statistik-pengunjung li span:nth-child(1) {
   color: #262D33;
 }
 
+/* Puskesmas */
 .p_uptd{
   transition: .3s;
 }
@@ -112,6 +118,7 @@ ul#statistik-pengunjung li span:nth-child(1) {
     border-radius: 17px
 }
 
+/* Lembaga Terkait */
 #LT{
   transition: .3s;
 }

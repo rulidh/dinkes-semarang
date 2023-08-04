@@ -39,4 +39,8 @@
             $('.dropdown-menu').on('click', ($event) => $event.stopPropagation());
             $('#dropdown').attr('data-bs-toggle', 'dropdown');
         }
+      
+      if(window.matchMedia('(max-width: 700px)').matches) {
+        $('a#dropdown').attr('data-bs-toggle', 'dropdown').removeClass('dropdown-toggle');
+      }
     </script>
