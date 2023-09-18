@@ -28,6 +28,9 @@
                 </ul>
               </div>
             </li>
+            <li class="nav-item mx-2 my-1">
+              <a href="/dashboard/file-manager" style="padding: 4px 8px 4px 8px;" class="nav-link btn d-flex align-items-center rounded gap-2 link-dark border-0">File Manager</a>
+            </li>
           </ul>
         </div>
       </div>

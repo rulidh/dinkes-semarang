@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardMenuController;
@@ -91,3 +92,5 @@ Route::get('dashboard/menu/checkSlug', [DashboardMenuController::class, 'checkSl
 Route::resource('dashboard/menu', DashboardMenuController::class)->except('show')->middleware('auth');
 
 Route::post('dashboard/posts/create/image_upload', [EditorController::class, 'upload'])->name('image.upload');
+
+Route::get('dashboard/file-manager', [FileManagerController::class, 'index']);

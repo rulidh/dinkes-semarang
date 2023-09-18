@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -17,6 +19,8 @@
     <link rel="stylesheet" href="/css/dashboard/sidebars.css">
     {{-- CKEditor --}}
     <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    {{-- File Manager --}}
+    <link rel="stylesheet" href="{{ asset('vendor/file-manager-css/file-manager.css') }}">
   </head>
 
 <body>
